@@ -12,10 +12,11 @@ from dot.models import create_model
 from dot.utils.io import create_folder, write_video, read_video, read_frame
 from dot.utils.torch import to_device, get_grid
 
-
+#可视化模块
 class Visualizer(nn.Module):
     def __init__(self, args):
         super().__init__()
+        #不同的可视化模式
         self.save_mode = args.save_mode
         self.result_path = args.result_path
         self.overlay_factor = args.overlay_factor
@@ -172,7 +173,7 @@ def spline_interpolation(x, length=10):
     x = torch.from_numpy(cs(new_time)).view(-1, N, C).float().cuda()
     return x
 
-
+#生成彩虹的颜色，用于可视化区分不同的点的原始位置
 def get_rainbow_colors(size):
     col_map = colormaps["jet"]
     col_range = np.array(range(size)) / (size - 1)

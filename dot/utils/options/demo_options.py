@@ -1,6 +1,9 @@
 from .base_options import BaseOptions, str2bool
 
-
+# demo.py的参数
+#会覆盖base_options.py中的参数
+#意面模式(spaghetti_last_mode)更适合包含上下运动的物体的视频
+#覆盖模式(overlay)更适合包含左右运动的物体的视频
 class DemoOptions(BaseOptions):
     def initialize(self, parser):
         BaseOptions.initialize(self, parser)
@@ -17,5 +20,5 @@ class DemoOptions(BaseOptions):
         parser.add_argument("--spaghetti_grid", type=int, default=30)
         parser.add_argument("--spaghetti_scale", type=float, default=2)
         parser.add_argument("--spaghetti_every", type=int, default=10)
-        parser.set_defaults(data_root="datasets/demo", name="demo", batch_size=1, height=480, width=856, num_tracks=8192)
+        parser.set_defaults(data_root="datasets/demo", name="demo", batch_size=16, height=480, width=856, num_tracks=8192)
         return parser
